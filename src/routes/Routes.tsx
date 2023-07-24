@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../pages/Home/Home";
 import CreateUser from "../pages/UserPages/CreateUser/CreateUser";
 import UpdateUser from "../pages/UserPages/UpdateUser/UpdateUser";
+import ShowProducts from "../pages/ProductPages/ShowProducts/ShowProducts";
 
 const userRouter = [
   {
@@ -16,13 +16,24 @@ const userRouter = [
 
 const adminRouter = [
   {
-    path: "/",
-    element: <Home />,
+    path: "/admin",
+    element: "",
   },
 ];
 
-//inclui todas as rotas separada por useCase
-const router = createBrowserRouter([...userRouter, ...adminRouter]);
+const productRouter = [
+  {
+    path: "/",
+    element: <ShowProducts />,
+  },
+];
+
+//inclui todas as rotas, separadas por entidades
+const router = createBrowserRouter([
+  ...userRouter,
+  ...adminRouter,
+  ...productRouter,
+]);
 
 const Routes = () => {
   return <RouterProvider router={router} />;
