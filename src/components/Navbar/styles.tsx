@@ -18,6 +18,7 @@ export const DivContainer = styled.div`
 
 export const UlNavbar = styled.ul`
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: right;
