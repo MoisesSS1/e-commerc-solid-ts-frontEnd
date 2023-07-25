@@ -1,5 +1,5 @@
 import { DivContainer, UlNavbar } from "./styles";
-import "../../index.css";
+import "../../global.css";
 
 const Navbar = () => {
   return (
