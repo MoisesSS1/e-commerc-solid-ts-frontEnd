@@ -2,8 +2,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateUser from "../pages/UserPages/CreateUser/CreateUser";
 import UpdateUser from "../pages/UserPages/UpdateUser/UpdateUser";
 import ShowProducts from "../pages/ProductPages/ShowProducts/ShowProducts";
+import Login from "../pages/UserPages/Login/Login";
+import Navbar from "../components/Navbar/Navbar";
 
 const userRouter = [
+  {
+    path: "/user/login",
+    element: <Login />,
+  },
   {
     path: "/user/create",
     element: <CreateUser />,
@@ -30,9 +36,10 @@ const productRouter = [
 
 //inclui todas as rotas, separadas por entidades
 const router = createBrowserRouter([
-  ...userRouter,
-  ...adminRouter,
-  ...productRouter,
+  {
+    element: <Navbar />,
+    children: [...userRouter, ...adminRouter, ...productRouter],
+  },
 ]);
 
 const Routes = () => {

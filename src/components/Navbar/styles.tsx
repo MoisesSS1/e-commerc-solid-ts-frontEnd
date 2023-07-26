@@ -14,6 +14,11 @@ export const DivContainer = styled.div`
   p:hover {
     cursor: pointer;
   }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 export const UlNavbar = styled.ul`
@@ -27,9 +32,5 @@ export const UlNavbar = styled.ul`
   li {
     padding: 0px 30px;
     list-style: none;
-  }
-
-  li:hover {
-    cursor: pointer;
   }
 `;
