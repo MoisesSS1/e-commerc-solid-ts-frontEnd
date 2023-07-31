@@ -19,20 +19,26 @@ const CreateUser = () => {
             placeholder="Nome"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            minLength={3}
+            required
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
+            minLength={8}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Senha"
             value={password}
+            minLength={8}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={(e) => handleSubmit(e)}>Criar conta</button>
+          <button onSubmit={(e) => handleSubmit(e)}>Criar conta</button>
         </form>
       </DivFormCreateAccount>
     </ContainerCreateAccount>

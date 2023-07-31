@@ -5,7 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState<any>("");
   const [password, setPassword] = useState<any>("");
 
-  function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     console.log(email, password);
   }
@@ -18,16 +18,20 @@ const Login = () => {
             type="email"
             placeholder="Email"
             value={email}
+            minLength={5}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Senha"
             value={password}
+            minLength={8}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button onClick={(e) => handleSubmit(e)}>Login</button>
+          <button onSubmit={(e) => handleSubmit(e)}>Login</button>
         </form>
       </DivFormLogin>
     </ContainerLogin>
