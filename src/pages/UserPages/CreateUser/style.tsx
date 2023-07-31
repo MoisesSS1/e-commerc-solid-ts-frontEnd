@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const ContainerLogin = styled.div`
+export const ContainerCreateAccount = styled.div`
   width: 100vw;
   height: 93vh;
   background-color: #ffffff;
@@ -9,7 +9,7 @@ export const ContainerLogin = styled.div`
   justify-content: center;
 `;
 
-export const DivFormLogin = styled.div`
+export const DivFormCreateAccount = styled.div`
   width: 500px;
-  height: 200px;
+  height: 300px;
 `;
