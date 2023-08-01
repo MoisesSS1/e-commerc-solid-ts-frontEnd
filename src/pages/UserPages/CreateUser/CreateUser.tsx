@@ -1,19 +1,33 @@
 import { useState } from "react";
 import { ContainerCreateAccount, DivFormCreateAccount } from "./style";
+import api from "../../../services/axios";
 
 const CreateUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    await api
+      .post("/user/create", {
+        name: name,
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
     <ContainerCreateAccount>
       <DivFormCreateAccount>
-        <form>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
             placeholder="Nome"
@@ -38,7 +52,7 @@ const CreateUser = () => {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onSubmit={(e) => handleSubmit(e)}>Criar conta</button>
+          <button>Criar conta</button>
         </form>
       </DivFormCreateAccount>
     </ContainerCreateAccount>
