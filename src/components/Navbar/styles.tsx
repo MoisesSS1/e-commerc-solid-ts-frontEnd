@@ -9,13 +9,14 @@ export const DivContainer = styled.div`
   color: #fffefb;
   justify-content: space-between;
   align-items: center;
-  padding-left: 30px;
+  padding-left: 20px;
 
   p:hover {
     cursor: pointer;
   }
 
   a {
+    width: 100%;
     color: white;
     text-decoration: none;
   }
@@ -30,7 +31,7 @@ export const UlNavbar = styled.ul`
   align-items: center;
 
   li {
-    padding: 0px 30px;
+    padding: 0px 20px;
     list-style: none;
   }
 `;
