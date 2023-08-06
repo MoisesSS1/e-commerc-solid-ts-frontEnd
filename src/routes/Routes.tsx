@@ -4,6 +4,7 @@ import UpdateUser from "../pages/UserPages/UpdateUser/UpdateUser";
 import ShowProducts from "../pages/ProductPages/ShowProducts/ShowProducts";
 import Login from "../pages/UserPages/Login/Login";
 import Navbar from "../components/Navbar/Navbar";
+import Cart from "../pages/Cart/Cart";
 
 const userRouter = [
   {
@@ -34,11 +35,18 @@ const productRouter = [
   },
 ];
 
+const cartRouter = [
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+];
+
 //inclui todas as rotas, separadas por entidades
 const router = createBrowserRouter([
   {
     element: <Navbar />,
-    children: [...userRouter, ...adminRouter, ...productRouter],
+    children: [...userRouter, ...adminRouter, ...productRouter, ...cartRouter],
   },
 ]);
 
