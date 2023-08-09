@@ -5,6 +5,9 @@ import ShowProducts from "../pages/ProductPages/ShowProducts/ShowProducts";
 import Login from "../pages/UserPages/Login/Login";
 import Navbar from "../components/Navbar/Navbar";
 import Cart from "../pages/Cart/Cart";
+import { PrivateRoutes } from "./PrivateRoutes";
+
+//component para rotas privadas
 
 const userRouter = [
   {
@@ -17,14 +20,11 @@ const userRouter = [
   },
   {
     path: "/user/update",
-    element: <UpdateUser />,
-  },
-];
-
-const adminRouter = [
-  {
-    path: "/admin",
-    element: "",
+    element: (
+      <PrivateRoutes redirectTo={"/user/login"}>
+        <UpdateUser />,
+      </PrivateRoutes>
+    ),
   },
 ];
 
@@ -38,7 +38,11 @@ const productRouter = [
 const cartRouter = [
   {
     path: "/cart",
-    element: <Cart />,
+    element: (
+      <PrivateRoutes redirectTo={"/user/login"}>
+        <Cart />
+      </PrivateRoutes>
+    ),
   },
 ];
 
@@ -46,7 +50,7 @@ const cartRouter = [
 const router = createBrowserRouter([
   {
     element: <Navbar />,
-    children: [...userRouter, ...adminRouter, ...productRouter, ...cartRouter],
+    children: [...userRouter, ...productRouter, ...cartRouter],
   },
 ]);
 

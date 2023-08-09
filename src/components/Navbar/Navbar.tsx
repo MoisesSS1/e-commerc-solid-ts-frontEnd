@@ -5,9 +5,17 @@ import { GiShoppingCart } from "react-icons/gi";
 import { TbEdit } from "react-icons/tb";
 import { SlLogout } from "react-icons/sl";
 import { TbHomeSearch } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const isLogged = true;
+  const isLogged = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  function Logout() {
+    localStorage.removeItem("token");
+    navigate("/");
+  }
+
   return (
     <>
       <DivContainer>
@@ -40,9 +48,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to={"/logout"}>
-                  <SlLogout />
-                </Link>
+                <a>
+                  <SlLogout onClick={() => Logout()} />
+                </a>
               </li>
             </>
           )}

@@ -20,6 +20,10 @@ export const DivContainer = styled.div`
     color: white;
     text-decoration: none;
   }
+
+  a:hover {
+    cursor: pointer;
+  }
 `;
 
 export const UlNavbar = styled.ul`
