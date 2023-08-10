@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 
-export const ContainerMessage = styled.div`
+export const ContainerMessage = styled.div<{ $msgColor: string }>`
   width: 300px;
   color: black;
-  background-color: #2a80cc;
+  background-color: ${(props) => props.$msgColor};
   height: 30px;
   position: absolute;
   top: 50%;

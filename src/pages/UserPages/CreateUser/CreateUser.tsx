@@ -7,33 +7,38 @@ const CreateUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [returnCreate, setReturnCreate] = useState({ message: "", type: "" });
+  const [type, setType] = useState("");
+  const [msg, setMsg] = useState("");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  console.log(msg);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    await api
+    api
       .post("/user/create", {
         name: name,
         email: email,
         password: password,
       })
       .then((res) => {
-        setReturnCreate({
-          message: "Usuário cadastrado com sucesso!",
-          type: "sucess",
-        });
+        setMsg(res.data.message);
+        setType("sucess");
       })
-      .catch(() => {
-        setReturnCreate({
-          message: "Erro ao criar conta, tente novamente!",
-          type: "error",
-        });
+      .catch((err) => {
+        setMsg(err.response.data.message);
+        setType("error");
       });
+
+    setTimeout(() => {
+      setMsg("");
+    }, 3000);
   }
 
   return (
     <>
+      {msg && type && <Message message={msg} type={type} />}
+
       <ContainerCreateAccount>
         <DivFormCreateAccount>
           <form onSubmit={(e) => handleSubmit(e)}>
@@ -65,10 +70,6 @@ const CreateUser = () => {
           </form>
         </DivFormCreateAccount>
       </ContainerCreateAccount>
-
-      {returnCreate.message && (
-        <Message message={returnCreate.message} type={returnCreate.type} />
-      )}
     </>
   );
 };

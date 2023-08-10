@@ -7,21 +7,22 @@ interface Props {
 }
 
 const Message = (props: Props) => {
-  const [msg, setMsg] = useState("");
-  const [type, setType] = useState("");
+  const [msg, setMsg] = useState(props.message.toString());
 
-  setMsg(props.message);
-  setType(props.type);
+  let msgColor;
 
-  setTimeout(() => {
-    setMsg("");
-    setType("");
-  }, 3000);
+  if (props.type === "error") {
+    msgColor = "red";
+  } else {
+    msgColor = "blue";
+  }
 
   return (
-    <ContainerMessage value={type}>
-      <p>{msg} </p>
-    </ContainerMessage>
+    <>
+      <ContainerMessage $msgColor={msgColor}>
+        <h1>{props.message}</h1>
+      </ContainerMessage>
+    </>
   );
 };
 
