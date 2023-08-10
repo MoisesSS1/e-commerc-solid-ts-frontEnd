@@ -6,17 +6,26 @@ import Login from "../pages/UserPages/Login/Login";
 import Navbar from "../components/Navbar/Navbar";
 import Cart from "../pages/Cart/Cart";
 import { PrivateRoutes } from "./PrivateRoutes";
+import { PublicRoutes } from "./PublicRoutes";
 
 //component para rotas privadas
 
 const userRouter = [
   {
     path: "/user/login",
-    element: <Login />,
+    element: (
+      <PublicRoutes redirectTo={"/"}>
+        <Login />,
+      </PublicRoutes>
+    ),
   },
   {
     path: "/user/create",
-    element: <CreateUser />,
+    element: (
+      <PublicRoutes>
+        <CreateUser />
+      </PublicRoutes>
+    ),
   },
   {
     path: "/user/update",
