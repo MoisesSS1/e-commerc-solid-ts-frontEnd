@@ -2,5 +2,7 @@ export interface productCardDTO {
   _id: string;
   name: string;
   price: number;
-  url: string;
+  image: string;
+  description: string;
+  category: string;
 }

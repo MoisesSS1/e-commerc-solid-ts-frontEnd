@@ -10,8 +10,9 @@ import api from "../../../services/axios";
 
 const ShowProducts = () => {
   type T = any;
-  const [products, setProducts] = useState<Array<T>>([{}]);
 
+  const [products, setProducts] = useState<Array<T>>([{}]);
+  console.log(products[0].name);
   useEffect(() => {
     api.get("/products").then((res) => {
       setProducts(res.data.data);
@@ -30,7 +31,7 @@ const ShowProducts = () => {
 
       <BannerShowProducts></BannerShowProducts>
 
-      {products && (
+      {products[0].name && (
         <FindShowProducts>
           {products.map((product, index) => {
             if (index > 20) {
@@ -42,7 +43,9 @@ const ShowProducts = () => {
                 name={product.name}
                 _id={product._id}
                 price={product.price}
-                url={product.url}
+                image={product.image}
+                description={product.description}
+                category={product.category}
               />
             );
           })}
