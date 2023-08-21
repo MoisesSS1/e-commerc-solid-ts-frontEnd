@@ -12,7 +12,6 @@ const ShowProducts = () => {
   type T = any;
 
   const [products, setProducts] = useState<Array<T>>([{}]);
-  console.log(products[0].name);
   useEffect(() => {
     api.get("/products").then((res) => {
       setProducts(res.data.data);

@@ -1,3 +1,4 @@
+import api from "../../services/axios";
 import { productCardDTO } from "./CardProductDTO";
 import { ContainerProduct } from "./styles";
 import { GiShoppingCart } from "react-icons/gi";
@@ -5,8 +6,19 @@ import { GiShoppingCart } from "react-icons/gi";
 const CardProduct = ({ _id, name, price, image }: productCardDTO) => {
   const token = localStorage.getItem("token");
 
-  function addToCard(_id: string) {
-    console.log(_id);
+  function addToCard(idProduct: string) {
+    api.post(
+      "/cart/add",
+      {
+        idProduct: idProduct,
+        qtd: 1,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
   }
 
   return (
