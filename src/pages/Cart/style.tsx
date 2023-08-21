@@ -24,6 +24,10 @@ export const CartDiv = styled.div`
   width: 600px;
   min-height: 500px;
   margin: 50px;
+
+  button {
+    margin: 15px 0px;
+  }
 `;
 
 export const ItemsCart = styled.div`

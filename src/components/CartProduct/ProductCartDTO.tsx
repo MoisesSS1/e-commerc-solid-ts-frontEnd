@@ -2,6 +2,6 @@ export interface ProductCartDTO {
   _id: string;
   name: string;
   price: number;
-  url: string;
+  image: string;
   qtd: number;
 }

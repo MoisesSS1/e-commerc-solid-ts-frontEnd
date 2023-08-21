@@ -6,7 +6,7 @@ export const ItemContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  padding: 20px;
   width: 100%;
   img {
     width: 100px;
@@ -21,7 +21,6 @@ export const DataItem = styled.div`
     width: 50px;
     height: 30px;
     border-radius: 10px;
-    margin: 10px;
     border-style: none;
     text-align: center;
   }
