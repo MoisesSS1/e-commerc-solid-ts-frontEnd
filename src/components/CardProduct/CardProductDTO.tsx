@@ -5,4 +5,5 @@ export interface productCardDTO {
   image: string;
   description: string;
   category: string;
+  messageSet: Function;
 }

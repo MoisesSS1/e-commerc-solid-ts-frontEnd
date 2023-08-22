@@ -1,27 +1,36 @@
 import { ContainerMessage } from "./style";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Props {
-  message: string;
+  msg: string;
   type: string;
 }
 
 const Message = (props: Props) => {
-  const [msg, setMsg] = useState(props.message.toString());
+  const [visible, setVisible] = useState<boolean>(false);
 
-  let msgColor;
+  useEffect(() => {
+    if (!props.msg) {
+      setVisible(false);
+      return;
+    }
 
-  if (props.type === "error") {
-    msgColor = "red";
-  } else {
-    msgColor = "blue";
-  }
+    setVisible(true);
+
+    setTimeout(() => {
+      setVisible(false);
+    }, 3000);
+
+    return;
+  }, [props.msg]);
 
   return (
     <>
-      <ContainerMessage $msgColor={msgColor}>
-        <h1>{props.message}</h1>
-      </ContainerMessage>
+      {visible && (
+        <ContainerMessage $type={props.type}>
+          <h1>{props.msg}</h1>
+        </ContainerMessage>
+      )}
     </>
   );
 };

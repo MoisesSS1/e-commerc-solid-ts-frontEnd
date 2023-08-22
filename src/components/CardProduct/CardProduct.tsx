@@ -3,22 +3,33 @@ import { productCardDTO } from "./CardProductDTO";
 import { ContainerProduct } from "./styles";
 import { GiShoppingCart } from "react-icons/gi";
 
-const CardProduct = ({ _id, name, price, image }: productCardDTO) => {
+const CardProduct = ({
+  _id,
+  name,
+  price,
+  image,
+  messageSet,
+}: productCardDTO) => {
   const token = localStorage.getItem("token");
 
   function addToCard(idProduct: string) {
-    api.post(
-      "/cart/add",
-      {
-        idProduct: idProduct,
-        qtd: 1,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    api
+      .post(
+        "/cart/add",
+        {
+          idProduct: idProduct,
+          qtd: 1,
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
+      .then((res) => {
+        let msg = res.data.message;
+        messageSet(msg, "sucess");
+      });
   }
 
   return (

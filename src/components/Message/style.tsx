@@ -1,14 +1,13 @@
 import { styled } from "styled-components";
 
-export const ContainerMessage = styled.div<{ $msgColor: string }>`
-  width: 300px;
-  color: black;
-  background-color: ${(props) => props.$msgColor};
-  height: 30px;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  padding: 5px 0px;
+export const ContainerMessage = styled.div<{ $type: string }>`
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #000;
+  margin: 0 auto;
   text-align: center;
-  margin: 0px auto;
+  margin-bottom: 2em;
+  border-radius: 5px;
+  background-color: ${(props) =>
+    props.$type === "error" ? "#FF0000" : "#00FF00"};
 `;
