@@ -29,6 +29,10 @@ const CardProduct = ({
       .then((res) => {
         let msg = res.data.message;
         messageSet(msg, "sucess");
+      })
+      .catch((err) => {
+        let msg = err.data.message;
+        messageSet(msg, "error");
       });
   }
 
