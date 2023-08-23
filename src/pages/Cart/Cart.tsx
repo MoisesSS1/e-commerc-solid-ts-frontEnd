@@ -7,6 +7,20 @@ const Cart = () => {
   const [total, setTotal] = useState<number>(0);
   const [ListProductCart, setListProdctCart] = useState<any>([]);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    api
+      .get("/cart", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setListProdctCart(res.data.data);
+        calcTotal(res.data.data);
+      });
+  }, []);
+
   function calcTotal(items: any) {
     const arrValues = items.map((item: any) => {
       let value = 0;
@@ -21,19 +35,9 @@ const Cart = () => {
     setTotal(sum);
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    api
-      .get("/cart", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setListProdctCart(res.data.data);
-        calcTotal(res.data.data);
-      });
-  }, []);
+  function closeOrder() {
+    console.log("order");
+  }
 
   return (
     <CartContainer>
@@ -54,11 +58,13 @@ const Cart = () => {
               );
             })}
         </ItemsCart>
-        <p>
-          {" "}
-          <span>Total - </span>R$: {total.toFixed(2)}
-        </p>
-        <button>FECHAR PEDIDO</button>
+
+        {ListProductCart[0] && (
+          <>
+            <p>Total - R$: {total.toFixed(2)}</p>
+            <button onClick={() => closeOrder()}>FECHAR PEDIDO</button>
+          </>
+        )}
       </CartDiv>
     </CartContainer>
   );

@@ -24,4 +24,12 @@ export const DataItem = styled.div`
     border-style: none;
     text-align: center;
   }
+
+  span {
+    color: red;
+  }
+
+  span:hover {
+    cursor: pointer;
+  }
 `;
