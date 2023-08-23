@@ -31,7 +31,7 @@ const CardProduct = ({
         messageSet(msg, "sucess");
       })
       .catch((err) => {
-        let msg = err.data.message;
+        let msg = err.message;
         messageSet(msg, "error");
       });
   }

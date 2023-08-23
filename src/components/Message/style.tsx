@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 
 export const ContainerMessage = styled.div<{ $type: string }>`
-  width: 100%;
+  position: fixed;
+  top: 50vh;
   padding: 1em;
   border: 1px solid #000;
   margin: 0 auto;
