@@ -21,12 +21,17 @@ export const CartDiv = styled.div`
   font-size: 1.3em;
   color: #0a0a0a;
   background-color: rgb(255, 255, 255);
-  width: 600px;
+  min-width: 500px;
   min-height: 500px;
   margin: 50px;
 
   button {
     margin: 15px 0px;
+    border-radius: 25px;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 `;
 
@@ -36,4 +41,63 @@ export const ItemsCart = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+`;
+
+export const SelectAdress = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 400px;
+
+  p {
+    margin: 20px auto;
+  }
+
+  input {
+    padding: 3px;
+    text-decoration: none;
+    border: 2px solid #ccc;
+    text-align: center;
+  }
+
+  input[type="number"] {
+    width: 70px;
+    border-style: none;
+    border-bottom: 1px solid #080808;
+  }
+
+  span {
+    margin: 10px;
+  }
+
+  span:hover {
+    cursor: pointer;
+  }
+`;
+
+export const DivInfoAdress = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const DivOrderFinalize = styled.div`
+  p {
+    margin-top: 30px;
+
+    border-bottom: 5px solid #a069df;
+  }
+`;
+
+export const DivAdressInfo = styled.div`
+  border-bottom: 5px solid #a069df;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+  p {
+    margin-top: 3px;
+    border-bottom: none;
+  }
 `;

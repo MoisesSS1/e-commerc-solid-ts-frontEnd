@@ -32,7 +32,7 @@ const ProductCart = ({ name, price, _id, qtd, image }: ProductCartDTO) => {
         <p> R$ {price} </p>
         <p>
           Qtd:
-          <input type="number" value={qtd} />
+          <input type="number" value={qtd} readOnly />
         </p>
         <span onClick={() => deleteItem(_id)}>
           <AiOutlineDelete />
