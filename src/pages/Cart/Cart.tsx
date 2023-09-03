@@ -1,4 +1,5 @@
 import ProductCart from "../../components/CartProduct/ProductCart";
+import Message from "../../components/Message/Message";
 import api from "../../services/axios";
 import {
   CartContainer,
@@ -8,6 +9,7 @@ import {
   DivInfoAdress,
   DivOrderFinalize,
   DivAdressInfo,
+  CartEmpty,
 } from "./style";
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -22,7 +24,7 @@ const Cart = () => {
 
   //staged 2
   const [cep, setCep] = useState<string>("");
-  const [numberAdress, setNumberAdress] = useState("");
+  const [numberAdress, setNumberAdress] = useState<number | string>("");
   const [apiAdress, setApiAdress] = useState<boolean | any>(false);
 
   //stage 3
@@ -30,10 +32,9 @@ const Cart = () => {
   const [sendOrder, setSendOrder] = useState(false);
   const [returnNumberOrder, setReturnNumberOrder] = useState(0);
 
-  //etapas
-  //1 - fazer pedido
-  //2 - incluir cep para entrega + preço da entrega
-  //3 - finalizar compra
+  //retorno api mensagem
+  const [msg, setMsg] = useState("");
+  const [type, setType] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -69,15 +70,13 @@ const Cart = () => {
         cep: cep,
       })
       .then((res) => {
-        if (res.data.erro === true) {
-          //componente message e retornar erro na mensagem
-          return console.log("Não achou cep");
-        }
         setApiAdress(res.data);
       })
       .catch((err) => {
         //incluir flash message de erro
-        console.log(err.response.data.message);
+        setApiAdress(false);
+        setMsg(err.response.data.message);
+        setType("error");
       });
   }
 
@@ -91,6 +90,13 @@ const Cart = () => {
 
   function generateOrder() {
     //salva os dados editados e chama a função para emitir criação do pedido
+
+    if (numberAdress === "") {
+      setMsg("Preencha o numero da residência!");
+      setType("error");
+      return;
+    }
+
     setCreateOrder({
       total: total,
       infoItems: {
@@ -120,14 +126,21 @@ const Cart = () => {
           },
         )
         .then((res: any) => {
-          console.log(res);
           setReturnNumberOrder(res.data.createOrder.number);
         });
     }
   }, [sendOrder]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setMsg("");
+      setType("");
+    }, 3000);
+  }, [msg]);
+
   return (
     <CartContainer>
+      <Message msg={msg} type={type} />
       {stage === 1 && (
         <CartDiv>
           <ItemsCart>
@@ -145,6 +158,12 @@ const Cart = () => {
                   />
                 );
               })}
+
+            {!ListProductCart[0] && (
+              <CartEmpty>
+                <p>Carrinho vazio</p>
+              </CartEmpty>
+            )}
           </ItemsCart>
 
           {ListProductCart[0] && (

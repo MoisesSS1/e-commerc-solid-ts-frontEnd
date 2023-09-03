@@ -43,6 +43,13 @@ export const ItemsCart = styled.div`
   justify-content: flex-end;
 `;
 
+export const CartEmpty = styled.div`
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const SelectAdress = styled.div`
   display: flex;
   flex-direction: column;
