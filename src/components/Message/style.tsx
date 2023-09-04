@@ -4,11 +4,15 @@ export const ContainerMessage = styled.div<{ $type: string }>`
   position: fixed;
   top: 50vh;
   padding: 1em;
-  border: 1px solid #000;
+  border: none;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 2em;
   border-radius: 5px;
   background-color: ${(props) =>
-    props.$type === "error" ? "#FF0000" : "#00FF00"};
+    props.$type === "error" ? "#e26464" : "#7cf07c"};
+
+  @media (max-width: 700px) {
+    width: 80%;
+  }
 `;

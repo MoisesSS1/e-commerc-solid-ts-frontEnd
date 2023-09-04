@@ -3,16 +3,10 @@ import styled from "styled-components";
 export const ContainerShowProducts = styled.div`
   width: 80vw;
   margin: 0 auto;
-`;
 
-export const ListCategories = styled.div`
-  font-size: 1.2em;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const BannerShowProducts = styled.div`
@@ -24,6 +18,13 @@ export const BannerShowProducts = styled.div`
   background-attachment: fixed;
   background-position: center;
   margin: 30px auto;
+
+  @media (max-width: 700px) {
+    background-attachment: initial;
+    width: 100%;
+    height: 30vh;
+    background-size: contain;
+  }
 `;
 
 export const FindShowProducts = styled.div`

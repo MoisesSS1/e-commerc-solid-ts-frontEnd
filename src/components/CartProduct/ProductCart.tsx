@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import { ProductCartDTO } from "./ProductCartDTO";
 import { DataItem, ItemContainer } from "./styled";

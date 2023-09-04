@@ -23,4 +23,12 @@ export const ContainerProduct = styled.div`
     margin: 5px 0px;
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    font-size: 1em;
+    width: 120px;
+    margin: 10px;
+    padding: 0px;
+    min-height: 0px;
+  }
 `;

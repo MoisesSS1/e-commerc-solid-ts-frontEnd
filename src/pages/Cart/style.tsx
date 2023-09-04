@@ -33,6 +33,15 @@ export const CartDiv = styled.div`
   button:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    font-size: 1em;
+    min-height: 0px;
+    padding: 10px;
+    min-width: 0px;
+    margin: 30px;
+    width: 80vw;
+  }
 `;
 
 export const ItemsCart = styled.div`

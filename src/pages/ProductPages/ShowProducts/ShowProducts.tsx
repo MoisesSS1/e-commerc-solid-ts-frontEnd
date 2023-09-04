@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import CardProduct from "../../../components/CardProduct/CardProduct";
-import {
-  BannerShowProducts,
-  ContainerShowProducts,
-  ListCategories,
-} from "./styles";
+import { BannerShowProducts, ContainerShowProducts } from "./styles";
 import { FindShowProducts } from "./styles";
 import api from "../../../services/axios";
 import Message from "../../../components/Message/Message";
@@ -34,14 +30,6 @@ const ShowProducts = () => {
 
   return (
     <ContainerShowProducts>
-      <ListCategories>
-        <p>Camisas</p>
-        <p>Bermudas</p>
-        <p>Games</p>
-        <p>Equipamentos</p>
-        <p>Perfumes</p>
-      </ListCategories>
-
       <BannerShowProducts></BannerShowProducts>
 
       {products[0].name && (

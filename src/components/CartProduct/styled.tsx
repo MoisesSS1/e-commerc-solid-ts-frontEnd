@@ -12,6 +12,15 @@ export const ItemContainer = styled.div`
     width: 100px;
     height: 100px;
   }
+
+  @media (max-width: 700px) {
+    padding: 5px;
+
+    img {
+      width: 100px;
+      height: 50px;
+    }
+  }
 `;
 
 export const DataItem = styled.div`
@@ -31,5 +40,9 @@ export const DataItem = styled.div`
 
   span:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    margin-left: 20px;
   }
 `;

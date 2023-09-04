@@ -24,6 +24,12 @@ export const DivContainer = styled.div`
   a:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    a {
+      width: 20%;
+    }
+  }
 `;
 
 export const UlNavbar = styled.ul`

@@ -8,9 +8,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
-  const [msg, setMsg] = useState("");
-
-  console.log(msg);
+  const [msg, setMsg] = useState<string>("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,7 +35,7 @@ const CreateUser = () => {
 
   return (
     <>
-      {msg && type && <Message message={msg} type={type} />}
+      {msg && type && <Message msg={msg} type={type} />}
 
       <ContainerCreateAccount>
         <DivFormCreateAccount>

@@ -49,11 +49,6 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link to={"/user/update"}>
-                  <TbEdit />
-                </Link>
-              </li>
-              <li>
                 <a>
                   <SlLogout onClick={() => Logout()} />
                 </a>
