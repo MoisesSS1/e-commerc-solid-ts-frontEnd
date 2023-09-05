@@ -3,7 +3,6 @@ import "../../global.css";
 import { Link, Outlet } from "react-router-dom";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { TbEdit } from "react-icons/tb";
 import { SlLogout } from "react-icons/sl";
 import { TbHomeSearch } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
