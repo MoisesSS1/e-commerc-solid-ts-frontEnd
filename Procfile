@@ -1,1 +1,1 @@
-web: npm start
+web: vite preview --port $PORT
