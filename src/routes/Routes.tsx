@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateUser from "../pages/UserPages/CreateUser/CreateUser";
-import UpdateUser from "../pages/UserPages/UpdateUser/UpdateUser";
 import ShowProducts from "../pages/ProductPages/ShowProducts/ShowProducts";
 import Login from "../pages/UserPages/Login/Login";
 import Navbar from "../components/Navbar/Navbar";
@@ -25,14 +24,6 @@ const userRouter = [
       <PublicRoutes>
         <CreateUser />
       </PublicRoutes>
-    ),
-  },
-  {
-    path: "/user/update",
-    element: (
-      <PrivateRoutes redirectTo={"/user/login"}>
-        <UpdateUser />,
-      </PrivateRoutes>
     ),
   },
 ];
