@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContainerLogin, DivFormLogin } from "./style";
 import api from "../../../services/axios";
 import { useNavigate } from "react-router-dom";
+import Message from "../../../components/Message/Message";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState<any>("");
   const [password, setPassword] = useState<any>("");
-  const navigate = useNavigate();
+  const [msg, setMsg] = useState("");
+  const [type, setType] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -18,20 +22,30 @@ const Login = () => {
       })
       .then((res) => {
         if (res.data.data === "err") {
-          console.log("Senha incorreta");
+          setMsg("Senha incorreta!");
+          setType("error");
         } else {
           localStorage.setItem("token", res.data.data);
           navigate("/");
         }
       })
       .catch((err) => {
-        console.log(err.data.message);
+        setMsg(err.response.data.message);
+        setType("error");
       });
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMsg("");
+      setType("");
+    }, 3000);
+  }, [msg]);
 
   return (
     <>
       <ContainerLogin>
+        <Message msg={msg} type={type}></Message>
         <DivFormLogin>
           <form onSubmit={(e) => handleSubmit(e)}>
             <input
