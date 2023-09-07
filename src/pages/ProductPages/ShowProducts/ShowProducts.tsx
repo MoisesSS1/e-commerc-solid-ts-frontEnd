@@ -32,27 +32,28 @@ const ShowProducts = () => {
     <ContainerShowProducts>
       <BannerShowProducts></BannerShowProducts>
 
-      {products[0].name && (
-        <FindShowProducts>
-          <Message msg={msg} type={type} />
-          {products.map((product, index) => {
-            if (index > 20) {
-              return;
-            }
-            return (
-              <CardProduct
-                key={index}
-                name={product.name}
-                _id={product._id}
-                price={product.price}
-                image={product.image}
-                description={product.description}
-                category={product.category}
-                messageSet={messageSet}
-              />
-            );
-          })}
-        </FindShowProducts>
+      {products && (
+        <>
+          {products[0].name && (
+            <FindShowProducts>
+              <Message msg={msg} type={type} />
+              {products.map((product, index) => {
+                return (
+                  <CardProduct
+                    key={index}
+                    name={product.name}
+                    _id={product._id}
+                    price={product.price}
+                    image={product.image}
+                    description={product.description}
+                    category={product.category}
+                    messageSet={messageSet}
+                  />
+                );
+              })}
+            </FindShowProducts>
+          )}
+        </>
       )}
     </ContainerShowProducts>
   );
