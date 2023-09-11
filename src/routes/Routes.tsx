@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Cart from "../pages/Cart/Cart";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
+import ShowOrders from "../pages/Orders/ShowOrders";
 
 //component para rotas privadas
 
@@ -46,11 +47,22 @@ const cartRouter = [
   },
 ];
 
+const ordersRouter = [
+  {
+    path: "/orders",
+    element: (
+      <PrivateRoutes redirectTo={"/user/login"}>
+        <ShowOrders />
+      </PrivateRoutes>
+    ),
+  },
+];
+
 //inclui todas as rotas, separadas por entidades
 const router = createBrowserRouter([
   {
     element: <Navbar />,
-    children: [...userRouter, ...productRouter, ...cartRouter],
+    children: [...userRouter, ...productRouter, ...cartRouter, ...ordersRouter],
   },
 ]);
 

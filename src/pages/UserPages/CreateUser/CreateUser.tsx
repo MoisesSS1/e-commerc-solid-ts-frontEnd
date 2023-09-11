@@ -35,9 +35,8 @@ const CreateUser = () => {
 
   return (
     <>
-      {msg && type && <Message msg={msg} type={type} />}
-
       <ContainerCreateAccount>
+        <Message msg={msg} type={type} />
         <DivFormCreateAccount>
           <form onSubmit={(e) => handleSubmit(e)}>
             <input

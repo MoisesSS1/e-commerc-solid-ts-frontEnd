@@ -13,7 +13,7 @@ export const ContainerMessage = styled.div<{ $type: string }>`
     props.$type === "error" ? "#e26464" : "#7cf07c"};
 
   @media (max-width: 700px) {
-    top: 30vh;
+    top: 40vh;
     width: 60%;
   }
 `;
