@@ -19,7 +19,7 @@ const Cart = () => {
   const [stage, setStage] = useState(1);
 
   //staged 1
-  const [total, setTotal] = useState<number>(0);
+  const [total, setTotal] = useState<number>();
   const [ListProductCart, setListProdctCart] = useState<any>([]);
 
   //staged 2
@@ -30,7 +30,7 @@ const Cart = () => {
   //stage 3
   const [createOrder, setCreateOrder] = useState({});
   const [sendOrder, setSendOrder] = useState(false);
-  const [returnNumberOrder, setReturnNumberOrder] = useState(0);
+  const [returnNumberOrder, setReturnNumberOrder] = useState();
 
   //retorno api mensagem
   const [msg, setMsg] = useState("");

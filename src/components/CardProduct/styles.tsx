@@ -26,7 +26,7 @@ export const ContainerProduct = styled.div`
 
   @media (max-width: 700px) {
     font-size: 1em;
-    width: 120px;
+    width: 150px;
     margin: 10px;
     padding: 0px;
     min-height: 0px;
