@@ -1,16 +1,22 @@
+import { ContainerCardShowOrder } from "./style";
+
 interface Props {
   number: number;
-  adress: Object;
+  adress: any;
   idsProducts: Array<Object>;
   total: number;
 }
 
 const CardShowOrder = ({ ...props }: Props) => {
   return (
-    <div>
-      <p>pedido: {props.number} </p>
-      <p>total: {props.total}</p>
-    </div>
+    <ContainerCardShowOrder>
+      <p>{props.number} </p>
+      <p>R$ {props.total}</p>
+      <p>{props.adress.localidade} </p>
+      <p>
+        {props.adress.logradouro}, {props.adress.number}
+      </p>
+    </ContainerCardShowOrder>
   );
 };
 
